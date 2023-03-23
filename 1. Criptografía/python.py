@@ -11,7 +11,7 @@ def xor_master(mensaje_hex, key_hex):
     textoDescifrado = b""
     for i in range(len(textoCifrado)):
         textoDescifrado += bytes([textoCifrado[i] ^ key[i % len(key)]])
-    return textoDescifrado.decode("utf-8")
+    return textoDescifrado.decode("ascii")
 
 # Ejemplo de uso
 textoCifrado_hex = "9c8d968f8b90a08f868b979091a0c5bb"
