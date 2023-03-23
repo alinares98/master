@@ -14,12 +14,12 @@ def xor_master(mensaje_hex, key_hex):
     return textoDescifrado.decode("utf-8")
 
 # Ejemplo de uso
-textoCifrado_hex = "9c8d968f8b90a08f868b979091a0c5bb"
-key_hex = "ffffffffffffffffffffffffffffffff"
-textoPlano = xor_master(textoCifrado_hex, key_hex)
-print("El mensaje descifrado es:", textoPlano) 
+textoCifrado = bin.fromhex("9c8d968f8b90a08f868b979091a0c5bb")
+key = bin.fomhex("ffffffffffffffffffffffffffffffff")
 
-# resultado -> cripto_python_:D
+mensaje_xor = textoCifrado[2:]^key[2:]
+print("El mensaje descifrado es:", mensaje_xor) 
+
 
 
 
