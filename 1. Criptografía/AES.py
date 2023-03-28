@@ -1,13 +1,9 @@
-#Cifrar texto con AES
-
-# 1- Cifrar con AES y modo de cifrado CBC
-    # “a secret message” -- '12345678901234567890123456789012'
-
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import padding
 import os
 
+#Devuelve el mensaje cifrado en modo CBC utilizando la clave y el IV dados.
 def aes_cbc_encrypt(key: bytes, message: bytes, iv: bytes) -> bytes:
     cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
     encryptor = cipher.encryptor()
@@ -23,9 +19,9 @@ def aes_cbc_decrypt(key: bytes, ciphertext: bytes, iv: bytes) -> bytes:
     return unpadder.update(plaintext_padded) + unpadder.finalize()
 
 # Ejemplo de uso
-key = os.urandom(16)      # Clave aleatoria de 16 bytes
+key = b'12345678901234567890123456789012'      # Clave 
 iv = os.urandom(16)       # Vector de inicialización aleatorio de 16 bytes
-message = b'Hola, mundo!' # Mensaje a cifrar
+message = b'a secret message' # Mensaje a cifrar
 
 # Ciframos el mensaje
 ciphertext = aes_cbc_encrypt(key, message, iv)
