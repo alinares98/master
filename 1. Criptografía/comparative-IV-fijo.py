@@ -71,7 +71,7 @@ def aes_ecb_decrypt(key: bytes, ciphertext: bytes) -> bytes:
 
 #Ejemplo de uso con IV fijo
 key = b'12345678901234567890123456789012'     # Clave 
-iv_fijo = b'\x00'*16       # Vector de inicialización aleatorio de 16 bytes
+iv_fijo = b'\x00'*16       # Vector de inicialización fijo
 message = b'a secret message' # Mensaje a cifrar
 
 print("Mensaje original:", message)
